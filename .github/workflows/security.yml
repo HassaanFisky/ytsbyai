@@ -1,0 +1,177 @@
+name: Security Scan
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 2 * * 1'  # Weekly on Monday at 2 AM
+
+jobs:
+  # Dependency vulnerability scan
+  dependency-check:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Install safety
+      run: pip install safety
+
+    - name: Run safety check for Python
+      run: |
+        cd backend
+        safety check --json --output safety-report.json || true
+        safety check --full-report
+
+    - name: Install npm audit
+      run: |
+        cd frontend
+        npm audit --audit-level=moderate --json > npm-audit.json || true
+        npm audit --audit-level=moderate
+
+    - name: Upload safety report
+      uses: actions/upload-artifact@v3
+      with:
+        name: safety-report
+        path: backend/safety-report.json
+
+    - name: Upload npm audit report
+      uses: actions/upload-artifact@v3
+      with:
+        name: npm-audit-report
+        path: frontend/npm-audit.json
+
+  # Container vulnerability scan
+  container-scan:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        image-ref: 'ytsbyai-backend:latest'
+        format: 'sarif'
+        output: 'trivy-results.sarif'
+
+    - name: Upload Trivy scan results to GitHub Security tab
+      uses: github/codeql-action/upload-sarif@v2
+      if: always()
+      with:
+        sarif_file: 'trivy-results.sarif'
+
+  # Code security analysis
+  codeql-analysis:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: javascript, python
+
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v2
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
+
+  # Secret scanning
+  secret-scan:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Run TruffleHog
+      uses: trufflesecurity/trufflehog@main
+      with:
+        path: ./
+        base: HEAD~1
+        head: HEAD
+        extra_args: --only-verified
+
+  # License compliance
+  license-check:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Install license check tools
+      run: |
+        pip install pip-licenses
+        npm install -g license-checker
+
+    - name: Check Python licenses
+      run: |
+        cd backend
+        pip-licenses --format=json --output-file=python-licenses.json
+
+    - name: Check Node.js licenses
+      run: |
+        cd frontend
+        license-checker --json --out=node-licenses.json
+
+    - name: Upload license reports
+      uses: actions/upload-artifact@v3
+      with:
+        name: license-reports
+        path: |
+          backend/python-licenses.json
+          frontend/node-licenses.json
+
+  # Security policy check
+  security-policy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Check for security policy
+      run: |
+        if [ ! -f SECURITY.md ]; then
+          echo "⚠️  No SECURITY.md file found"
+          exit 1
+        fi
+        echo "✅ Security policy found"
+
+    - name: Validate security policy
+      run: |
+        if [ -f SECURITY.md ]; then
+          echo "Security policy content:"
+          cat SECURITY.md
+        fi 

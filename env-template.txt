@@ -1,0 +1,131 @@
+# YTS by AI - Environment Variables Template
+# Copy this file to .env and fill in your actual values
+
+# =============================================================================
+# CORE CONFIGURATION
+# =============================================================================
+ENVIRONMENT=development
+DEBUG=true
+SECRET_KEY=your-secret-key-here
+ALLOWED_ORIGINS=["http://localhost:3000", "https://your-frontend-domain.vercel.app"]
+
+# =============================================================================
+# OPENAI CONFIGURATION
+# =============================================================================
+OPENAI_API_KEY=your-openai-api-key-here
+
+# =============================================================================
+# FIREBASE CONFIGURATION
+# =============================================================================
+FIREBASE_API_KEY=your-firebase-api-key
+FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
+FIREBASE_PROJECT_ID=your-project-id
+FIREBASE_STORAGE_BUCKET=your-project.appspot.com
+FIREBASE_APP_ID=your-firebase-app-id
+FIREBASE_PRIVATE_KEY_ID=your-private-key-id
+FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nYour private key here\n-----END PRIVATE KEY-----\n"
+FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
+FIREBASE_CLIENT_ID=your-client-id
+FIREBASE_CLIENT_CERT_URL=your-cert-url
+
+# =============================================================================
+# STRIPE CONFIGURATION
+# =============================================================================
+STRIPE_SECRET_KEY=sk_test_your-stripe-secret-key
+STRIPE_PUBLISHABLE_KEY=pk_test_your-stripe-publishable-key
+STRIPE_WEBHOOK_SECRET=whsec_your-webhook-secret
+
+# =============================================================================
+# REDIS CONFIGURATION
+# =============================================================================
+REDIS_HOST=localhost
+REDIS_PORT=6379
+REDIS_PASSWORD=
+REDIS_DB=0
+
+# =============================================================================
+# NEO4J CONFIGURATION (for GraphRAG)
+# =============================================================================
+NEO4J_URI=bolt://localhost:7687
+NEO4J_USER=neo4j
+NEO4J_PASSWORD=password
+
+# =============================================================================
+# PINECONE CONFIGURATION (for vector search)
+# =============================================================================
+PINECONE_API_KEY=your-pinecone-api-key
+PINECONE_ENVIRONMENT=us-west1-gcp
+PINECONE_INDEX_NAME=yts-summaries
+
+# =============================================================================
+# VOICE AI CONFIGURATION
+# =============================================================================
+WHISPER_MODEL_SIZE=base
+VOICE_SYNTHESIS_PROVIDER=openvoice
+VOICE_CLONING_ENABLED=true
+REALTIME_TRANSCRIPTION_ENABLED=true
+MAX_AUDIO_FILE_SIZE=52428800
+SUPPORTED_AUDIO_FORMATS=mp3,wav,webm,m4a
+AUDIO_SAMPLE_RATE=16000
+AUDIO_CHANNELS=1
+
+# =============================================================================
+# USAGE LIMITS
+# =============================================================================
+FREE_TIER_TRANSCRIPTION_LIMIT=1000
+FREE_TIER_SYNTHESIS_LIMIT=500
+PRO_TIER_TRANSCRIPTION_LIMIT=100000
+PRO_TIER_SYNTHESIS_LIMIT=50000
+
+# =============================================================================
+# DEMO PORTAL CONFIGURATION
+# =============================================================================
+DEMO_ENABLED=true
+DEMO_SUMMARY_LIMIT=3
+DEMO_TRANSCRIPTION_LIMIT=2
+DEMO_AUDIO_MAX_DURATION=30
+DEMO_SESSION_DURATION=86400
+
+# =============================================================================
+# ADMIN CONFIGURATION
+# =============================================================================
+ADMIN_EMAILS=admin@ytsbyai.com,founder@ytsbyai.com,growth@ytsbyai.com,analytics@ytsbyai.com
+
+# =============================================================================
+# NOTIFICATIONS (SENDGRID)
+# =============================================================================
+SENDGRID_API_KEY=your-sendgrid-api-key
+ALERT_EMAIL=alerts@ytsbyai.com
+FEEDBACK_ALERT_EMAIL=feedback@ytsbyai.com
+
+# =============================================================================
+# SLACK INTEGRATION (Optional)
+# =============================================================================
+SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK
+SLACK_WEBHOOK_FEEDBACK=https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK
+SLACK_WEBHOOK_FEATURES=https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK
+
+# =============================================================================
+# POSTHOG ANALYTICS (Optional)
+# =============================================================================
+POSTHOG_API_KEY=your-posthog-api-key
+POSTHOG_HOST=https://app.posthog.com
+
+# =============================================================================
+# DEPLOYMENT URLs
+# =============================================================================
+FRONTEND_URL=https://your-frontend-domain.vercel.app
+BACKEND_URL=https://your-backend-domain.onrender.com
+
+# =============================================================================
+# RATE LIMITING
+# =============================================================================
+RATE_LIMIT_PER_MINUTE=60
+RATE_LIMIT_PER_HOUR=1000
+
+# =============================================================================
+# SECURITY
+# =============================================================================
+JWT_SECRET_KEY=your-jwt-secret-key
+JWT_ALGORITHM=HS256
+JWT_ACCESS_TOKEN_EXPIRE_MINUTES=30 

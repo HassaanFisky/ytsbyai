@@ -1,0 +1,25 @@
+# Ignore environment variable files
+.env
+.env.*
+firebase-adminsdk.json
+
+# Ignore local settings
+*.local
+
+# Ignore node_modules and Python venvs
+node_modules/
+venv/
+
+# Ignore build and cache
+.next/
+dist/
+build/
+__pycache__/
+
+# Ignore Expo/React Native
+.expo/
+
+# Ignore IDE/editor files
+.vscode/
+.idea/
+.DS_Store
