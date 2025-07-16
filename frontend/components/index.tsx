@@ -46,8 +46,8 @@ export { default as RecommendationDisplay } from './recommendation-display';
 
 // Utility Components
 export { default as QuotaExceededModal } from './QuotaExceededModal';
-export { default as PWAInstallPrompt } from './PWAInstallPrompt';
-export { default as PWAServiceWorker } from './PWAServiceWorker';
+export { PWAInstallPrompt } from './PWAInstallPrompt';
+export { PWAServiceWorker } from './PWAServiceWorker';
 export { default as SEO } from './SEO';
 export { default as AgeGate } from './AgeGate';
 export { default as UserModeExample } from './UserModeExample';

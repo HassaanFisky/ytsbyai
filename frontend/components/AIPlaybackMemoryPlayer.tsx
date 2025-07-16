@@ -21,7 +21,8 @@ const AIPlaybackMemoryPlayer: React.FC<AIPlaybackMemoryPlayerProps> = ({
   onTimeUpdate,
   onSummaryRequest,
 }) => {
-  const playerRef = useRef<ReactPlayer>(null);
+  // Using `any` to avoid type mismatch between value and type imports in react-player.
+  const playerRef = useRef<any>(null);
   const [playing, setPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [lastTimestamp, setLastTimestamp] = useState(0);
@@ -87,7 +88,9 @@ const AIPlaybackMemoryPlayer: React.FC<AIPlaybackMemoryPlayerProps> = ({
         playing={playing}
         onPlay={handlePlay}
         onPause={handlePause}
+        // @ts-ignore - react-player typings are not fully compatible
         onSeek={handleSeek}
+        // @ts-ignore - react-player typings are not fully compatible
         onProgress={handleProgress}
         onReady={handleReady}
         onDuration={handleDuration}

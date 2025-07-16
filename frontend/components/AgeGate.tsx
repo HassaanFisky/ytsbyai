@@ -81,7 +81,7 @@ export default function AgeGate({ children, onAgeSubmit }: AgeGateProps) {
                   placeholder="Enter your age"
                   min="1"
                   max="120"
-                  className={`w-full px-4 py-3 ${theme.input} ${theme.getFontSize ? theme.getFontSize(ageCategory) : ''}`}
+                  className={`w-full px-4 py-3 ${theme.input} ${(theme as any).getFontSize ? (theme as any).getFontSize(ageCategory) : ''}`}
                   required
                 />
               </div>
