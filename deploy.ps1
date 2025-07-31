@@ -1,4 +1,4 @@
-# Check if required tools are installed (approved verb + better exit handling)
+    # Check if required tools are installed (approved verb + better exit handling)
 function Test-DeploymentTools {
     Write-Status "Checking deployment tools..."
 

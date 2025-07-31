@@ -1,0 +1,9 @@
+{
+  "snapshot": "snapshot-20250722-0d9ed954-bc62-46de-b8c7-7c488fcf193c",
+  "terminals": [
+    {
+      "name": "npm install && cd ../backend && pip install -r requirements.txt",
+      "command": "npm run dev"
+    }
+  ]
+}

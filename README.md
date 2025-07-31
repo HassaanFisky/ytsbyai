@@ -229,11 +229,22 @@ npm run test
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests
-5. Submit a pull request
+We welcome contributions from the community! To contribute:
+
+1. **Fork the repository** on GitHub.
+2. **Create a feature branch** for your changes.
+3. **Make your changes** with clear, well-documented code.
+4. **Add or update tests** to cover your changes.
+5. **Run all tests** to ensure nothing is broken.
+6. **Submit a pull request** with a clear description of your changes.
+
+### Contributor Guidelines
+- Follow our [Code of Conduct](CODE_OF_CONDUCT.md).
+- Write clear, concise commit messages.
+- Ensure your code passes linting and tests.
+- Document new features and changes in the relevant `.md` files.
+- For major changes, open an issue first to discuss what you would like to change.
+- Respect security and privacy best practices (never commit secrets).
 
 ---
 

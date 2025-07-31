@@ -155,7 +155,7 @@ POST /api/v1/features/{id}/vote   # Vote on features
 ### Quick Start
 ```bash
 # 1. Clone repository
-git clone https://github.com/your-username/ytsbyai.git
+git clone https://github.com/Hassaanfisky/ytsbyai.git
 cd ytsbyai
 
 # 2. Run complete setup
