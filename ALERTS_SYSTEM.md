@@ -36,7 +36,6 @@ A comprehensive, real-time alerts system for the YTS by AI Admin Dashboard, feat
 ## 🚀 Setup Instructions
 
 ### 1. Backend Setup
-```bash
 cd backend
 pip install httpx
 cp .env.example .env

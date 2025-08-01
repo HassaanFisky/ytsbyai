@@ -1,0 +1,230 @@
+# YTS by AI - Environment Variables Template
+# Copy this file to .env and fill in your actual values
+
+# =============================================================================
+# CORE CONFIGURATION
+# =============================================================================
+
+# Application Settings
+APP_NAME=YTS by AI
+APP_VERSION=1.0.0
+DEBUG=false
+ENVIRONMENT=production
+
+# Server Configuration
+HOST=0.0.0.0
+PORT=8000
+FRONTEND_URL=http://localhost:3000
+BACKEND_URL=http://localhost:8000
+
+# CORS Settings
+ALLOWED_ORIGINS=["http://localhost:3000","https://your-domain.com"]
+
+# =============================================================================
+# AI SERVICES
+# =============================================================================
+
+# OpenAI Configuration
+OPENAI_API_KEY=your-openai-api-key-here
+OPENAI_MODEL=gpt-4
+OPENAI_MAX_TOKENS=4000
+OPENAI_TEMPERATURE=0.7
+
+# Whisper Configuration
+WHISPER_MODEL_SIZE=base
+WHISPER_DEVICE=cpu
+WHISPER_COMPUTE_TYPE=float32
+
+# Voice AI Configuration
+VOICE_SYNTHESIS_PROVIDER=openvoice
+VOICE_CLONING_ENABLED=true
+VOICE_QUALITY=high
+
+# =============================================================================
+# DATABASE & STORAGE
+# =============================================================================
+
+# Redis Configuration
+REDIS_URL=redis://localhost:6379
+REDIS_PASSWORD=
+REDIS_DB=0
+
+# Neo4j Configuration
+NEO4J_URI=bolt://localhost:7687
+NEO4J_USER=neo4j
+NEO4J_PASSWORD=your-neo4j-password
+
+# Pinecone Configuration
+PINECONE_API_KEY=your-pinecone-api-key
+PINECONE_ENVIRONMENT=us-west1-gcp
+PINECONE_INDEX_NAME=ytsbyai-index
+
+# =============================================================================
+# AUTHENTICATION & SECURITY
+# =============================================================================
+
+# Firebase Configuration
+FIREBASE_API_KEY=your-firebase-api-key
+FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
+FIREBASE_PROJECT_ID=your-project-id
+FIREBASE_STORAGE_BUCKET=your-project.appspot.com
+FIREBASE_MESSAGING_SENDER_ID=123456789
+FIREBASE_APP_ID=your-firebase-app-id
+
+# JWT Configuration
+JWT_SECRET_KEY=your-super-secret-jwt-key-here
+JWT_ALGORITHM=HS256
+JWT_ACCESS_TOKEN_EXPIRE_MINUTES=30
+
+# Rate Limiting
+RATE_LIMIT_PER_MINUTE=60
+RATE_LIMIT_PER_HOUR=1000
+
+# =============================================================================
+# PAYMENT & SUBSCRIPTION
+# =============================================================================
+
+# Stripe Configuration
+STRIPE_SECRET_KEY=sk_test_your-stripe-secret-key
+STRIPE_PUBLISHABLE_KEY=pk_test_your-stripe-publishable-key
+STRIPE_WEBHOOK_SECRET=whsec_your-webhook-secret
+
+# Subscription Settings
+SUBSCRIPTION_PRICE_ID=price_your-subscription-price-id
+TRIAL_DAYS=30
+MONTHLY_PRICE=100
+
+# =============================================================================
+# NOTIFICATIONS & COMMUNICATIONS
+# =============================================================================
+
+# SendGrid Configuration
+SENDGRID_API_KEY=your-sendgrid-api-key
+SENDGRID_FROM_EMAIL=noreply@ytsbyai.com
+SENDGRID_FROM_NAME=YTS by AI
+
+# Slack Configuration
+SLACK_WEBHOOK_URL=https://hooks.slack.com/services/your/slack/webhook
+SLACK_CHANNEL=#alerts
+
+# Email Configuration
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your-email@gmail.com
+SMTP_PASSWORD=your-app-password
+
+# =============================================================================
+# ANALYTICS & MONITORING
+# =============================================================================
+
+# PostHog Configuration
+POSTHOG_API_KEY=your-posthog-api-key
+POSTHOG_HOST=https://app.posthog.com
+
+# Monitoring
+SENTRY_DSN=your-sentry-dsn
+LOG_LEVEL=INFO
+
+# =============================================================================
+# FEATURE FLAGS & LIMITS
+# =============================================================================
+
+# Usage Limits
+MAX_SUMMARIES_PER_DAY=50
+MAX_VOICE_DURATION_SECONDS=300
+MAX_FILE_SIZE_MB=25
+
+# Feature Flags
+DEMO_MODE_ENABLED=true
+VOICE_AI_ENABLED=true
+GRAPH_RAG_ENABLED=true
+ADMIN_DASHBOARD_ENABLED=true
+
+# =============================================================================
+# DEPLOYMENT & CI/CD
+# =============================================================================
+
+# Render Configuration (for backend deployment)
+RENDER_SERVICE_ID=your-render-service-id
+RENDER_API_KEY=your-render-api-key
+
+# Vercel Configuration (for frontend deployment)
+VERCEL_TOKEN=your-vercel-token
+VERCEL_PROJECT_ID=your-vercel-project-id
+
+# =============================================================================
+# DEVELOPMENT & TESTING
+# =============================================================================
+
+# Test Configuration
+TESTING=false
+MOCK_AI_SERVICES=false
+TEST_DATABASE_URL=redis://localhost:6379/1
+
+# Development Settings
+AUTO_RELOAD=true
+LOG_REQUESTS=true
+CACHE_ENABLED=true
+
+# =============================================================================
+# MOBILE APP CONFIGURATION
+# =============================================================================
+
+# Expo Configuration
+EXPO_PROJECT_ID=your-expo-project-id
+EXPO_ACCESS_TOKEN=your-expo-access-token
+
+# =============================================================================
+# CHROME EXTENSION CONFIGURATION
+# =============================================================================
+
+# Extension Settings
+EXTENSION_ID=your-chrome-extension-id
+EXTENSION_VERSION=1.0.0
+
+# =============================================================================
+# SECURITY & COMPLIANCE
+# =============================================================================
+
+# Security Settings
+ENABLE_HTTPS=true
+SECURE_COOKIES=true
+CSRF_PROTECTION=true
+
+# Privacy Settings
+GDPR_COMPLIANT=true
+DATA_RETENTION_DAYS=90
+ANONYMIZE_LOGS=true
+
+# =============================================================================
+# BACKUP & RECOVERY
+# =============================================================================
+
+# Backup Configuration
+BACKUP_ENABLED=true
+BACKUP_FREQUENCY=daily
+BACKUP_RETENTION_DAYS=30
+
+# =============================================================================
+# CUSTOMIZATION
+# =============================================================================
+
+# Branding
+BRAND_NAME=YTS by AI
+BRAND_COLOR=#3B82F6
+BRAND_LOGO_URL=https://your-domain.com/logo.png
+
+# Custom Settings
+DEFAULT_LANGUAGE=en
+SUPPORTED_LANGUAGES=["en","es","fr","de","ja","ko","zh"]
+TIMEZONE=UTC
+
+# =============================================================================
+# NOTES
+# =============================================================================
+
+# 1. Replace all 'your-*' values with actual credentials
+# 2. Keep this file secure and never commit .env to version control
+# 3. Use different values for development, staging, and production
+# 4. Regularly rotate API keys and secrets
+# 5. Monitor usage and adjust limits as needed 

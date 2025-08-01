@@ -37,12 +37,14 @@ If you discover a security issue, follow these steps:
 ## 🔒 Security Measures
 
 ### Authentication & Authorization
+
 - Firebase Authentication for user management
 - JWT token validation
 - Role-based access control (RBAC)
 - Rate limiting on all API endpoints
 
 ### Data Protection
+
 - All sensitive data encrypted at rest
 - HTTPS/TLS encryption in transit
 - API keys and secrets stored securely (never in code)
@@ -50,12 +52,14 @@ If you discover a security issue, follow these steps:
 - GDPR: All user data is handled per EU/US privacy law
 
 ### Infrastructure Security
+
 - Container security scanning (CI/CD)
 - Dependency vulnerability monitoring (Dependabot, Snyk)
 - Regular security updates and patching
 - Network isolation and firewalls
 
 ### Code Security
+
 - Static code analysis (CI)
 - Dependency vulnerability scanning
 - Secret scanning in CI/CD
@@ -67,6 +71,7 @@ If you discover a security issue, follow these steps:
 ## 🧑‍💻 Security Best Practices
 
 ### For Contributors
+
 - Never commit secrets (API keys, passwords, tokens)
 - Use environment variables for all configuration
 - Validate and sanitize all user inputs
@@ -75,6 +80,7 @@ If you discover a security issue, follow these steps:
 - Ensure all UIs are accessible (WCAG 2.2+)
 
 ### For Users
+
 - Use strong, unique passwords
 - Enable 2FA where available
 - Report suspicious activity immediately
@@ -135,6 +141,7 @@ Eligibility:
 ## 🚨 Incident Response
 
 ### Timeline
+
 1. Detection: 0-1 hours
 2. Assessment: 1-4 hours
 3. Containment: 4-24 hours
@@ -143,6 +150,7 @@ Eligibility:
 6. Lessons Learned: 1-2 weeks
 
 ### Communication
+
 - Internal: Immediate notification to security team
 - Customers: Within 72 hours for affected users
 - Public: Within 1 week for critical issues

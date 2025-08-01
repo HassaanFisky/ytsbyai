@@ -11,8 +11,8 @@ A modern, secure, and performant Progressive Web App for AI-powered YouTube vide
 - **PWA Support**: Full offline capabilities and app installation
 - **Multi-User Modes**: Teen, ADHD, and Professional interfaces
 
-### Security & Performance
-- **Comprehensive Security**: XSS protection, CSRF tokens, input validation
+### Security & Performance 
+**Comprehensive Security**: XSS protection, CSRF tokens, input validation
 - **Performance Monitoring**: Core Web Vitals tracking and optimization
 - **Error Handling**: Graceful error boundaries with recovery options
 - **Offline Support**: IndexedDB caching and sync queue management
