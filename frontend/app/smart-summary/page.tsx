@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import SmartSummaryInput from '../../components/smart-summary-input';
-import SmartSummaryDisplay from '../../components/smart-summary-display';
-import SummarySearch from '../../components/summary-search';
+import SmartSummaryInput from '@/components/smart-summary-input';
+import SmartSummaryDisplay from '@/components/smart-summary-display';
+import SummarySearch from '@/components/summary-search';
 
 interface SmartSummaryData {
   summary: string;

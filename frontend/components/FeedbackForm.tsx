@@ -19,7 +19,7 @@ import {
   CheckCircle,
   Loader2
 } from 'lucide-react';
-import { toast } from 'sonner';
+import { toast } from 'react-toastify';
 
 interface FeedbackFormProps {
   isOpen: boolean;

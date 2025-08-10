@@ -20,7 +20,7 @@ import {
   Eye
 } from 'lucide-react';
 import { getAuth } from 'firebase/auth';
-import { toast } from 'sonner';
+import { toast } from 'react-toastify';
 import { formatDate } from '@/lib/utils';
 import AdminAlertBanner from './AdminAlertBanner';
 

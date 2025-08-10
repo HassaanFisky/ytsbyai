@@ -16,7 +16,7 @@ import {
   Zap
 } from 'lucide-react';
 import { getAuth } from 'firebase/auth';
-import { toast } from 'sonner';
+import { toast } from 'react-toastify';
 
 interface Alert {
   id: string;

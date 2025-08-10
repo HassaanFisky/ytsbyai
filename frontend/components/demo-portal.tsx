@@ -24,7 +24,7 @@ import {
   Users,
   Zap
 } from 'lucide-react';
-import { toast } from 'sonner';
+import { toast } from 'react-toastify';
 import QuotaExceededModal from './QuotaExceededModal';
 import { useDemoStore, useDemoStats, useQuotaExceeded, useDemoActions, useQuotaHelpers } from '@/lib/demo-store';
 import { redirectToFirebaseSignup, redirectToStripeCheckout } from '@/lib/redirect-utils';

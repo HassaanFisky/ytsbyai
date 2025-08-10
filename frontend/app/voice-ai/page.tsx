@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import VoiceRecorder from '../../components/voice-recorder';
-import VoicePlayer from '../../components/voice-player';
+import VoiceRecorder from '@/components/voice-recorder';
+import VoicePlayer from '@/components/voice-player';
 
 interface TranscriptionResult {
   transcription: string;

@@ -10,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { Badge } from './ui/badge';
 import { useAuth } from '../hooks/use-auth';
 import { api } from '../lib/api';
-import { toast } from 'react-hot-toast';
+import { toast } from 'react-toastify';
 import { 
   X, 
   Plus, 
