@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState, useEffect } from 'react';
 import AgeGate from '@/components/agegate/AgeGate';
@@ -18,6 +18,6 @@ export default function UserModeGate({ children }: { children: React.ReactNode }
   };
 
   return !accepted
-    ? <AgeGate onAgeSubmit={handleAgeSubmit} />
+    ? <AgeGate onAgeSubmit={handleAgeSubmit}>{children}</AgeGate>
     : <>{children}</>;
 }

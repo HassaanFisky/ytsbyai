@@ -1,4 +1,5 @@
 // Offline management and caching utilities
+import React from 'react';
 export interface CacheConfig {
   name: string
   version: string

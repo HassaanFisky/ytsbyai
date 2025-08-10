@@ -230,7 +230,7 @@ export default function FeatureBoard({ onFeatureClick, onCreateNew }: FeatureBoa
   };
 
   const filteredFeatures = features.filter(feature => {
-    if (activeTab === 'my-requests' && feature.author_id !== user?.uid) {
+    if (activeTab === 'my-requests' && feature.author_id !== (user as any)?.uid) {
       return false;
     }
     return true;
@@ -429,7 +429,7 @@ export default function FeatureBoard({ onFeatureClick, onCreateNew }: FeatureBoa
                   feature={feature}
                   onVote={handleVote}
                   onClick={() => onFeatureClick?.(feature)}
-                  isAuthor={feature.author_id === user?.uid}
+                  isAuthor={feature.author_id === (user as any)?.uid}
                   showTooltips={showTooltips}
                 />
               ))}
@@ -504,10 +504,10 @@ function UniversalFeatureCard({
             {/* Category and Difficulty Badges */}
             <div className="flex items-center gap-2 mt-2">
               <Badge className="bg-blue-100 text-blue-800">
-                {categoryInfo.emoji} {categoryInfo.label.split(' ')[2]}
+                {(categoryInfo as any).emoji} {categoryInfo.label.split(' ')[2]}
               </Badge>
               <Badge className="bg-purple-100 text-purple-800">
-                {difficultyInfo.emoji} {difficultyInfo.label.split(' ')[1]}
+                {(difficultyInfo as any).emoji} {difficultyInfo.label.split(' ')[1]}
               </Badge>
               <Badge className={priorityInfo.color}>
                 {priorityInfo.label}
@@ -650,7 +650,7 @@ function UniversalFeatureCard({
             </div>
             <p className="text-xs">
               This is a feature request - an idea to improve the app! You can vote on ideas you like, 
-              and the most popular ones get built. {categoryInfo.description} {difficultyInfo.description}
+              and the most popular ones get built. {(categoryInfo as any).description} {(difficultyInfo as any).description}
             </p>
           </div>
         )}

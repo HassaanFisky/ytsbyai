@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Download, X, Smartphone, Desktop } from 'lucide-react'
+import { Download, X, Smartphone, Monitor } from 'lucide-react'
 
 interface BeforeInstallPromptEvent extends Event {
   readonly platforms: string[]
@@ -117,7 +117,7 @@ export function PWAInstallPrompt() {
                   <span>Mobile</span>
                 </div>
                 <div className="flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400">
-                  <Desktop className="w-3 h-3" />
+                  <Monitor className="w-3 h-3" />
                   <span>Desktop</span>
                 </div>
               </div>

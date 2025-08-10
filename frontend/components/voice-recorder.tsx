@@ -108,11 +108,7 @@ export default function VoiceRecorder({
       
       formData.append('auto_summarize', autoSummarize.toString());
       
-      const response = await api.post<TranscriptionResult>('/api/v1/transcribe', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
+      const response = await api.post('/api/v1/transcribe', formData);
       
       if (response.success && response.data) {
         const result = response.data;

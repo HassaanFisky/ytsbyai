@@ -1,4 +1,5 @@
 // Performance monitoring utilities
+import React from 'react';
 export interface PerformanceMetrics {
   fcp: number | null
   lcp: number | null
@@ -29,8 +30,10 @@ class PerformanceMonitor {
   private observers: Set<(metrics: PerformanceMetrics) => void> = new Set()
 
   constructor() {
-    this.initCoreWebVitals()
-    this.initCustomMetrics()
+    if (typeof window !== 'undefined') {
+      this.initCoreWebVitals()
+      this.initCustomMetrics()
+    }
   }
 
   private initCoreWebVitals() {
@@ -70,8 +73,8 @@ class PerformanceMonitor {
         const fidObserver = new PerformanceObserver((list) => {
           const entries = list.getEntries()
           entries.forEach((entry) => {
-            if (entry.processingStart && entry.startTime) {
-              this.metrics.fid = entry.processingStart - entry.startTime
+            if ((entry as any).processingStart && entry.startTime) {
+              this.metrics.fid = (entry as any).processingStart - entry.startTime
               this.notifyObservers()
             }
           })
@@ -221,7 +224,8 @@ export const usePerformanceMonitor = () => {
   const [metrics, setMetrics] = React.useState<PerformanceMetrics>(performanceMonitor.getMetrics())
 
   React.useEffect(() => {
-    return performanceMonitor.subscribe(setMetrics)
+    performanceMonitor.subscribe(setMetrics)
+    // Note: No cleanup needed as the subscription is handled internally
   }, [])
 
   return {

@@ -21,7 +21,7 @@ const AIPlaybackMemoryPlayer: React.FC<AIPlaybackMemoryPlayerProps> = ({
   onTimeUpdate,
   onSummaryRequest,
 }) => {
-  const playerRef = useRef<ReactPlayer>(null);
+  const playerRef = useRef<any>(null);
   const [playing, setPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [lastTimestamp, setLastTimestamp] = useState(0);
@@ -88,9 +88,9 @@ const AIPlaybackMemoryPlayer: React.FC<AIPlaybackMemoryPlayerProps> = ({
         onPlay={handlePlay}
         onPause={handlePause}
         onSeek={handleSeek}
-        onProgress={handleProgress}
-        onReady={handleReady}
-        onDuration={handleDuration}
+        onProgress={handleProgress as any}
+        onReady={handleReady as any}
+        onDuration={handleDuration as any}
         width="100%"
         height="360px"
       />

@@ -22,7 +22,8 @@ import {
   Loader2,
   Sparkles,
   Users,
-  Zap
+  Zap,
+  Square
 } from 'lucide-react';
 import { toast } from 'sonner';
 import QuotaExceededModal from './QuotaExceededModal';
@@ -439,13 +440,13 @@ const DemoPortal: React.FC = () => {
                 <div className="flex items-center gap-4">
                   <Button
                     onClick={isRecording ? stopRecording : startRecording}
-                    disabled={!demoStats?.has_any_quota || quotaExceeded?.transcription}
+                    disabled={!demoStats?.has_any_quota || (quotaExceeded as any)?.transcription}
                     variant={isRecording ? "destructive" : "default"}
                     className="flex items-center gap-2"
                   >
                     {isRecording ? (
                       <>
-                        <Stop className="h-4 w-4" />
+                        <Square className="h-4 w-4" />
                         Stop Recording
                       </>
                     ) : (
@@ -459,7 +460,7 @@ const DemoPortal: React.FC = () => {
                   {audioBlob && (
                     <Button
                       onClick={transcribeAudio}
-                      disabled={isLoading || !demoStats?.has_any_quota || quotaExceeded.transcription}
+                      disabled={isLoading || !demoStats?.has_any_quota || (quotaExceeded as any).transcription}
                       className="flex items-center gap-2"
                     >
                       {isLoading ? (
@@ -556,7 +557,7 @@ const DemoPortal: React.FC = () => {
                   />
                   <Button
                     onClick={createSummary}
-                    disabled={isLoading || !youtubeUrl.trim() || !demoStats?.has_any_quota || quotaExceeded.summary}
+                    disabled={isLoading || !youtubeUrl.trim() || !demoStats?.has_any_quota || (quotaExceeded as any).summary}
                     className="flex items-center gap-2"
                   >
                     {isLoading ? (

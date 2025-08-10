@@ -7,10 +7,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import { UserModeProvider } from '@/context/UserModeContext'
 import UserModeGate from '@/components/UserModeGate/UserModeGate'
-import LoadingScreen from '@/components/ui/LoadingScreen'
-import { AnimatePresence, motion } from 'framer-motion'
-import { usePathname } from 'next/navigation'
-import { Suspense } from 'react'
+import ClientLayout from '@/components/ClientLayout'
 import { PWAInstallPrompt } from '@/components/PWAInstallPrompt'
 import { PWAServiceWorker } from '@/components/PWAServiceWorker'
 import ErrorBoundary from '@/components/ErrorBoundary'
@@ -18,19 +15,9 @@ import { PostHogProvider } from '@/components/posthog-provider'
 import { getSecurityHeaders } from '@/lib/security'
 import { measurePageLoad } from '@/lib/performance'
 
-// Stripe integration (optional, safe fallback if not configured)
-let Elements: React.ComponentType<{ children: React.ReactNode; stripe?: any }> = ({ children }) => <>{children}</>
-let stripePromise: any = null
-try {
-  // Use direct imports if available
-  // @ts-ignore
-  Elements = require('@stripe/react-stripe-js').Elements
-  // @ts-ignore
-  stripePromise = require('@/lib/stripe').stripePromise
-} catch (e) {
-  // Stripe not available, fallback to no-op
-  console.warn('Stripe modules not found, Stripe features will be disabled.')
-}
+// Stripe integration
+import { Elements } from '@stripe/react-stripe-js'
+import { stripePromise } from '@/lib/stripe'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -69,8 +56,6 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname()
-  
   // Initialize performance monitoring
   if (typeof window !== 'undefined') {
     measurePageLoad()
@@ -99,19 +84,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Elements stripe={stripePromise}>
                   <div className="relative">
                     <UserModeGate>
-                      <Suspense fallback={<LoadingScreen />}>
-                        <AnimatePresence mode="wait">
-                          <motion.div
-                            key={pathname}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            transition={{ duration: 0.3 }}
-                          >
-                            {children}
-                          </motion.div>
-                        </AnimatePresence>
-                      </Suspense>
+                      <ClientLayout>
+                        {children}
+                      </ClientLayout>
                     </UserModeGate>
                     
                     {/* PWA Components */}
