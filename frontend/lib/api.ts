@@ -43,10 +43,11 @@ export const api = {
   get: <T = any>(endpoint: string) => 
     fetchFromAPI<T>(endpoint, { method: 'GET' }),
   
-  post: <T = any>(endpoint: string, data?: any) => 
+  post: <T = any>(endpoint: string, data?: any, options?: RequestInit) => 
     fetchFromAPI<T>(endpoint, { 
       method: 'POST', 
-      body: data ? JSON.stringify(data) : undefined 
+      body: data ? JSON.stringify(data) : undefined,
+      ...(options || {})
     }),
   
   put: <T = any>(endpoint: string, data?: any) => 

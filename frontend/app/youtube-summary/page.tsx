@@ -5,8 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Loader2, Youtube } from "lucide-react";
-import { toast } from "react-hot-toast";
-import axios from "axios";
+import { toast } from "react-toastify";
+import { api } from "@/lib/api";
 
 export default function YoutubeSummaryPage() {
   const [youtubeUrl, setYoutubeUrl] = useState("");
@@ -25,19 +25,19 @@ export default function YoutubeSummaryPage() {
     setLoading(true);
     try {
       const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
-      const response = await axios.post(
-        "http://localhost:8000/summary",
-        { youtube_url: youtubeUrl },
-        {
-          headers: token ? { Authorization: `Bearer ${token}` } : {},
-        }
+      const response = await api.post<{ summary: string }>(
+        "/api/v1/summary",
+        { youtube_url: youtubeUrl }
       );
-      setSummary(response.data.summary);
+      if (response.success && response.data) {
+        setSummary(response.data.summary);
+      } else {
+        throw new Error(response.error || "Failed to fetch summary.");
+      }
     } catch (err: any) {
-      setError(
-        err?.response?.data?.detail || err.message || "Failed to fetch summary."
-      );
-      toast.error(err?.response?.data?.detail || "Failed to fetch summary.");
+      const detail = err?.message || "Failed to fetch summary.";
+      setError(detail);
+      toast.error(detail);
     } finally {
       setLoading(false);
     }

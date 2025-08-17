@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import LangGraphSummaryInput from '../../components/langgraph-summary-input';
-import LangGraphSummaryDisplay from '../../components/langgraph-summary-display';
+import LangGraphSummaryInput from '@/components/langgraph-summary-input';
+import LangGraphSummaryDisplay from '@/components/langgraph-summary-display';
 
 interface LangGraphSummaryData {
   success: boolean;

@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import RecommendationInput from '../../components/recommendation-input';
-import RecommendationDisplay from '../../components/recommendation-display';
+import RecommendationInput from '@/components/recommendation-input';
+import RecommendationDisplay from '@/components/recommendation-display';
 
 interface RecommendationResponse {
   success: boolean;

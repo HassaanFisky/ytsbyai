@@ -9,7 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 import { useAuth } from '../../hooks/use-auth';
 import { api } from '../../lib/api';
-import { toast } from 'react-hot-toast';
+import { toast } from 'react-toastify';
 import { getStatusInfo, getPriorityInfo, formatDate } from '@/lib/utils';
 import { 
   TrendingUp, 
