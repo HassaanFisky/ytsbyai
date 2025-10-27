@@ -1,11 +1,46 @@
 {
+  "name": "ytsbyai",
+  "version": "1.0.0",
+  "description": "YouTube Summary AI - A comprehensive AI-powered platform for YouTube content analysis",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && python main.py",
+    "build": "npm run build:frontend",
+    "build:frontend": "cd frontend && npm run build",
+    "start": "npm run start:frontend",
+    "start:frontend": "cd frontend && npm run start",
+    "lint": "npm run lint:frontend",
+    "lint:frontend": "cd frontend && npm run lint",
+    "lint:fix": "npm run lint:fix:frontend",
+    "lint:fix:frontend": "cd frontend && npm run lint:fix",
+    "test": "npm run test:frontend",
+    "test:frontend": "cd frontend && npm run test",
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && pip install -r requirements.txt",
+    "clean": "cd frontend && npm run clean",
+    "audit": "npm audit && cd frontend && npm audit",
+    "audit:fix": "npm audit fix && cd frontend && npm audit fix"
+  },
   "dependencies": {
     "axios": "^1.10.0",
     "firebase": "^11.10.0"
   },
   "devDependencies": {
+    "concurrently": "^9.1.0",
     "eslint": "^9.32.0",
     "prettier": "^3.6.2",
     "typescript": "^5.8.3"
-  }
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-username/ytsbyai.git"
+  },
+  "keywords": ["youtube", "ai", "summary", "analysis", "transcript"],
+  "author": "Your Name",
+  "license": "MIT"
 }

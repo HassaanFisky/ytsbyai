@@ -11,7 +11,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
   Mic, 
   Play, 
- 
+  Stop,
   Download, 
   Copy, 
   Share2, 

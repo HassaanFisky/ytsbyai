@@ -8,15 +8,12 @@ import 'react-toastify/dist/ReactToastify.css'
 import { UserModeProvider } from '@/context/UserModeContext'
 import UserModeGate from '@/components/UserModeGate/UserModeGate'
 import LoadingScreen from '@/components/ui/LoadingScreen'
-import { AnimatePresence, motion } from 'framer-motion'
-import { usePathname } from 'next/navigation'
+import { ClientLayout } from '@/components/ClientLayout'
 import { Suspense } from 'react'
 import { PWAInstallPrompt } from '@/components/PWAInstallPrompt'
 import { PWAServiceWorker } from '@/components/PWAServiceWorker'
 import ErrorBoundary from '@/components/ErrorBoundary'
 import { PostHogProvider } from '@/components/posthog-provider'
-import { getSecurityHeaders } from '@/lib/security'
-import { measurePageLoad } from '@/lib/performance'
 
 // Stripe integration (optional, safe fallback if not configured)
 let Elements: React.ComponentType<{ children: React.ReactNode; stripe?: any }> = ({ children }) => <>{children}</>
@@ -100,17 +97,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <div className="relative">
                     <UserModeGate>
                       <Suspense fallback={<LoadingScreen />}>
-                        <AnimatePresence mode="wait">
-                          <motion.div
-                            key={pathname}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            transition={{ duration: 0.3 }}
-                          >
-                            {children}
-                          </motion.div>
-                        </AnimatePresence>
+                        <ClientLayout>
+                          {children}
+                        </ClientLayout>
                       </Suspense>
                     </UserModeGate>
                     
